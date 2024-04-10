@@ -5,7 +5,7 @@ const psn_api_1 = require("psn-api");
 async function main() {
     // 1. Authenticate and become authorized with PSN.
     // See the Authenticating Manually docs for how to get your NPSSO.
-    const accessCode = await (0, psn_api_1.exchangeNpssoForCode)("ipKIkil3s2Gtq4RfauG28ff3JchGc8B8jEyMInJ6a6pUKExm4COkAbhL8sueEvvO");
+    const accessCode = await (0, psn_api_1.exchangeNpssoForCode)("pWheRcGRMhQUSXSFmJIJF1MXOc2N3aeTm0WJDXq29nI6JikQ83CD6lS9y2Cl5QjT");
     const authorization = await (0, psn_api_1.exchangeCodeForAccessToken)(accessCode);
     // 2. Get the user's `accountId` from the username.
     const allAccountsSearchResults = await (0, psn_api_1.makeUniversalSearch)(authorization, "andykasen13", "SocialAllAccounts");
