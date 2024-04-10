@@ -5,3 +5,6 @@ sorting code for the playstation api
 need to do `tsc` to activate the javascript files and run them
 
 need `npm install psn-api`
+
+https://github.com/achievements-app/psn-api
+
