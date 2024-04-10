@@ -9,6 +9,9 @@ async function main() {
     const authorization = await (0, psn_api_1.exchangeCodeForAccessToken)(accessCode);
     // 2. Get the user's `accountId` from the username.
     const allAccountsSearchResults = await (0, psn_api_1.makeUniversalSearch)(authorization, "andykasen13", "SocialAllAccounts");
+    const searchResults2 = await (0, psn_api_1.makeUniversalSearch)(authorization, "Red Dead Redemption 2", "SocialAllAccounts");
+    console.log(searchResults2);
+    return;
     console.log(allAccountsSearchResults.domainResponses[0]);
     if (allAccountsSearchResults.domainResponses[0].totalResultCount == 0) {
         throw new Error("Zero results!!");

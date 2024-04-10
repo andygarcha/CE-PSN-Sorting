@@ -23,6 +23,14 @@ async function main() {
     "andykasen13",
     "SocialAllAccounts"
   );
+
+  const searchResults2 = await makeUniversalSearch(
+    authorization,
+    "Red Dead Redemption 2",
+    "SocialAllAccounts"
+  );
+  console.log(searchResults2)
+  return
   console.log(allAccountsSearchResults.domainResponses[0])
   if (allAccountsSearchResults.domainResponses[0].totalResultCount == 0) { throw new Error("Zero results!!") }
 
