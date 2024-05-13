@@ -7,10 +7,25 @@ async function main() {
     // See the Authenticating Manually docs for how to get your NPSSO.
     const accessCode = await (0, psn_api_1.exchangeNpssoForCode)("pWheRcGRMhQUSXSFmJIJF1MXOc2N3aeTm0WJDXq29nI6JikQ83CD6lS9y2Cl5QjT");
     const authorization = await (0, psn_api_1.exchangeCodeForAccessToken)(accessCode);
+    console.log(authorization);
     // 2. Get the user's `accountId` from the username.
     const allAccountsSearchResults = await (0, psn_api_1.makeUniversalSearch)(authorization, "andykasen13", "SocialAllAccounts");
     const searchResults2 = await (0, psn_api_1.makeUniversalSearch)(authorization, "Red Dead Redemption 2", "SocialAllAccounts");
-    console.log(searchResults2);
+    fetch('https://m.np.playstation.com/api/trophy/v1/users/andykasen13/trophyTitles', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ "npsso": "pWheRcGRMhQUSXSFmJIJF1MXOc2N3aeTm0WJDXq29nI6JikQ83CD6lS9y2Cl5QjT" })
+    })
+        .then(response => response.json())
+        .then(data => {
+        console.log(data);
+    })
+        .catch(error => {
+        console.error('Error fetching data:', error);
+    });
+    //console.log(searchResults2)
     return;
     console.log(allAccountsSearchResults.domainResponses[0]);
     if (allAccountsSearchResults.domainResponses[0].totalResultCount == 0) {
